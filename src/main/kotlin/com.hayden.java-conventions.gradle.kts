@@ -1,9 +1,11 @@
+import gradle.kotlin.dsl.accessors._501bd2bd61ad3ed337a2698e5c2fb2ce.dependencyManagement
 
 plugins {
     `java-library`
     `maven-publish`
     id("com.hayden.base-plugin")
 }
+
 
 project.ext["springCloudVersion"] = "2023.0.0"
 project.ext["springBootVersion"] = "3.2.5"
@@ -13,6 +15,7 @@ java {
 }
 
 dependencies {
+
     api("org.springframework.boot:spring-boot-starter")
     api("org.springframework.boot:spring-boot-starter-aop")
     api("org.springframework.boot:spring-boot-starter-logging")
