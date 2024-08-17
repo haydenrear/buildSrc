@@ -3,10 +3,9 @@ plugins {
 }
 
 dependencies {
-    testImplementation("org.springframework.kafka:spring-kafka-test")
+    testImplementation("org.springframework.graphql:spring-graphql-test")
     implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-graphql")
-    testImplementation("org.springframework.graphql:spring-graphql-test")
     implementation("com.netflix.graphql.dgs.codegen:graphql-dgs-codegen-core:6.1.4")
     implementation("com.netflix.graphql.dgs:graphql-dgs-mocking:8.2.5")
     implementation("org.springframework.integration:spring-integration-graphql")
