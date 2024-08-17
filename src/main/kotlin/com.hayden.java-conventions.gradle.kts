@@ -1,4 +1,3 @@
-import gradle.kotlin.dsl.accessors._501bd2bd61ad3ed337a2698e5c2fb2ce.dependencyManagement
 
 plugins {
     `java-library`

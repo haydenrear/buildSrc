@@ -6,6 +6,7 @@ plugins {
 }
 
 dependencies {
+    implementation("com.hayden:hayden-bom-plugin:0.0.1")
     implementation(vC.netflixDgsLib)
     implementation(vC.springBoot)
     implementation(vC.springDependencyManagement)
@@ -23,5 +24,4 @@ repositories {
     maven {
         url = uri("https://repo.maven.apache.org/maven2/")
     }
-
 }

@@ -1,10 +1,12 @@
-import gradle.kotlin.dsl.accessors._285dcef16d8875fee0ec91e18e07daf9.implementation
+import com.hayden.haydenbomplugin.BuildSrcVersionCatalogCollector
 
 plugins {
     id("com.hayden.base-plugin")
 }
 
+val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class.java)
+
 dependencies {
-    api("org.aspectj:aspectjweaver:1.9.7")
+    implementation(vC.libs.aspectJWeaver)
     implementation("org.springframework.boot:spring-boot-starter-aop")
 }
