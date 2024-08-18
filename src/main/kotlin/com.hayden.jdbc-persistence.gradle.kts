@@ -10,7 +10,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
 
     implementation("com.querydsl:querydsl-sql:5.0.0")
-    annotationProcessor("com.querydsl:querydsl-apt:5.0.0:jakarta") // For JPA
+    annotationProcessor("com.querydsl:querydsl-apt:5.0.0:jakarta")
     implementation("com.querydsl:querydsl-sql-codegen:5.0.0")
     annotationProcessor("com.querydsl:querydsl-apt:5.0.0")
 }

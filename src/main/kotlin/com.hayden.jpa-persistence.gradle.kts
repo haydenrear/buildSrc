@@ -1,5 +1,4 @@
 plugins {
-    id("com.hayden.base-plugin")
     id("com.hayden.persistence")
 }
 

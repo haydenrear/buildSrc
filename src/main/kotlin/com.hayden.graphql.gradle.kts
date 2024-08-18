@@ -1,16 +1,22 @@
+import com.hayden.haydenbomplugin.BuildSrcVersionCatalogCollector
+
 plugins {
     id("com.netflix.dgs.codegen")
+    id("com.hayden.base-plugin")
 }
+
+val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class.java)
 
 dependencies {
     testImplementation("org.springframework.graphql:spring-graphql-test")
-    implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-graphql")
-    implementation("com.netflix.graphql.dgs.codegen:graphql-dgs-codegen-core:6.1.4")
-    implementation("com.netflix.graphql.dgs:graphql-dgs-mocking:8.2.5")
     implementation("org.springframework.integration:spring-integration-graphql")
-    implementation("com.apollographql.federation:federation-graphql-java-support:2.1.0")
+
+    implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter")
     implementation("com.netflix.graphql.dgs:graphql-dgs-extended-scalars")
+
+    vC.bundles.dgsBundle.inBundle()
+        .map { implementation(it) }
 }
 
 

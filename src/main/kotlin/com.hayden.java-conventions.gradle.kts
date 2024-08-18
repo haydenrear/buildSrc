@@ -1,13 +1,9 @@
-
 plugins {
     `java-library`
     `maven-publish`
     id("com.hayden.base-plugin")
 }
 
-
-project.ext["springCloudVersion"] = "2023.0.0"
-project.ext["springBootVersion"] = "3.2.5"
 
 java {
     version = JavaVersion.VERSION_21
@@ -24,7 +20,7 @@ dependencies {
     api("org.springframework.boot:spring-boot-configuration-processor")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.springframework.boot:spring-boot-testcontainers:${property("springBootVersion")}")
+    testImplementation("org.springframework.boot:spring-boot-testcontainers")
     testImplementation("org.testcontainers:postgresql:1.19.4")
 
     runtimeOnly("org.springframework.boot:spring-boot-devtools")
@@ -53,7 +49,6 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
     testImplementation("io.projectreactor:reactor-test:3.6.0")
 
-
     api("org.reflections:reflections:0.10.2")
 
     testImplementation("org.junit.platform:junit-platform-suite-api:1.7.2")
@@ -61,8 +56,6 @@ dependencies {
     testImplementation("org.junit:junit-bom:5.8.0-M1")
     testImplementation("org.testcontainers:testcontainers:1.16.2")
     testImplementation("org.testcontainers:junit-jupiter:1.16.2")
-
-
 }
 
 

@@ -1,9 +1,13 @@
+import com.hayden.haydenbomplugin.BuildSrcVersionCatalogCollector
+import gradle.kotlin.dsl.accessors._3743b5a2d0979aeed8493201d618fc18.implementation
+
 plugins {
     id("com.hayden.base-plugin")
 }
 
+val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class.java)
+
 dependencies {
-    implementation("org.bouncycastle:bcprov-jdk18on:1.76") // Update the version if needed
-    implementation("org.bouncycastle:bctls-jdk18on:1.76") // BouncyCastle TLS provider
-    implementation("org.bouncycastle:bcpkix-jdk18on:1.76") // BouncyCastle TLS provider
+    vC.bundles.bcBundle.inBundle()
+        .map { implementation(it) }
 }

@@ -1,8 +1,11 @@
+import com.hayden.haydenbomplugin.BuildSrcVersionCatalogCollector
+
 plugins {
     id("com.hayden.base-plugin")
 }
 
+val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class.java)
+
 dependencies {
-    api("org.drools:drools-engine:8.44.0.Final")
-    api("org.drools:drools-mvel:8.44.0.Final")
+    vC.bundles.droolsBundle.inBundle().map { api(it) }
 }

@@ -1,19 +1,19 @@
-import gradle.kotlin.dsl.accessors._285dcef16d8875fee0ec91e18e07daf9.implementation
-import gradle.kotlin.dsl.accessors._285dcef16d8875fee0ec91e18e07daf9.runtimeOnly
-import gradle.kotlin.dsl.accessors._285dcef16d8875fee0ec91e18e07daf9.testImplementation
+import com.hayden.haydenbomplugin.BuildSrcVersionCatalogCollector
+
+plugins {
+    id("com.hayden.base-plugin")
+}
+
+val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class.java)
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("io.opentelemetry:opentelemetry-api")
-    implementation("io.opentelemetry:opentelemetry-sdk");
-    implementation("io.opentelemetry:opentelemetry-exporter-logging");
-    implementation("io.opentelemetry.semconv:opentelemetry-semconv:1.23.1-alpha");
+    implementation("io.opentelemetry:opentelemetry-sdk")
+    implementation("io.opentelemetry:opentelemetry-exporter-logging")
 
-    implementation("io.opentelemetry.instrumentation:opentelemetry-logback-appender-1.0:2.1.0-alpha")
-    implementation("io.opentelemetry.instrumentation:opentelemetry-instrumentation-api:2.1.0")
-    implementation("io.opentelemetry.instrumentation:opentelemetry-spring-boot-starter:1.22.1-alpha")
-    implementation("io.opentelemetry.instrumentation:opentelemetry-instrumentation-annotations:2.1.0")
-    implementation("io.opentelemetry.instrumentation:opentelemetry-jdbc:2.1.0-alpha")
+    vC.bundles.opentelemetryBundle.inBundle()
+        .map { implementation(it) }
 
     runtimeOnly("io.micrometer:micrometer-registry-prometheus")
     implementation("io.micrometer:micrometer-registry-prometheus")
