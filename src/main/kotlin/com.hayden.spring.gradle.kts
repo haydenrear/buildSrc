@@ -1,3 +1,5 @@
+import com.hayden.haydenbomplugin.BuildSrcVersionCatalogCollector
+
 plugins {
     id("com.hayden.java-conventions")
     id("org.springframework.boot")
@@ -5,8 +7,8 @@ plugins {
 }
 
 dependencies {
-    compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
+    compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
     implementation("org.springframework.boot:spring-boot")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -17,4 +19,12 @@ tasks.withType(Test::class.java) {
     useJUnitPlatform()
 }
 
+val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class.java)
 
+vC.bundles.externalBomsBundle.inBundle().forEach { println(it) }
+
+dependencyManagement {
+    imports {
+        vC.bundles.externalBomsBundle.inBundle().map { mavenBom(it) }
+    }
+}
