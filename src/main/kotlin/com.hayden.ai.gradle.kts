@@ -11,6 +11,6 @@ val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class.jav
 dependencies {
     vC.bundles.dglBundle.inBundle()
         .map { implementation(it) }
-    implementation(vC.libs.vertexAi)
+//    implementation(vC.libs.vertexAi)
     runtimeOnly("ai.djl.pytorch:pytorch-native-cpu:2.0.1:osx-aarch64")
 }

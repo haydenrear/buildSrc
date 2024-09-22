@@ -9,6 +9,7 @@ dependencies {
     implementation(vC.springBoot)
     implementation(vC.springDependencyManagement)
     implementation(vC.kotlinGradle)
+    implementation("com.bmuschko.docker-remote-api:com.bmuschko.docker-remote-api.gradle.plugin:9.0.1")
 }
 
 repositories {

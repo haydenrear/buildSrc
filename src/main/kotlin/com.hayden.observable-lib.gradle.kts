@@ -7,13 +7,14 @@ plugins {
 val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class.java)
 
 dependencies {
+    vC.bundles.opentelemetryBundle.inBundle()
+        .map { implementation(it) }
+
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("io.opentelemetry:opentelemetry-api")
     implementation("io.opentelemetry:opentelemetry-sdk")
     implementation("io.opentelemetry:opentelemetry-exporter-logging")
-
-    vC.bundles.opentelemetryBundle.inBundle()
-        .map { implementation(it) }
 
     runtimeOnly("io.micrometer:micrometer-registry-prometheus")
     implementation("io.micrometer:micrometer-registry-prometheus")

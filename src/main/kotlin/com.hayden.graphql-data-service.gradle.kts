@@ -5,7 +5,6 @@ import org.gradle.kotlin.dsl.withType
 plugins {
     id("com.hayden.spring")
     id("com.hayden.observable-app")
-    id("com.hayden.discovery-app")
     id("com.hayden.dgs-graphql")
     id("com.hayden.java-conventions")
 }
