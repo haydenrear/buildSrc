@@ -4,10 +4,19 @@ plugins {
 
 val agent: Configuration = configurations.create("agent")
 val dynamicAgent: Configuration = configurations.create("dynamicAgent")
+val promAgent: Configuration = configurations.create("promAgent")
 
 dependencies {
     agent("io.opentelemetry.javaagent:opentelemetry-javaagent:2.0.0")
+    promAgent("io.prometheus.jmx:jmx_prometheus_javaagent:1.0.1")
     dynamicAgent(project(":tracing_agent"))
+}
+
+val copyPromAgent = tasks.register<Copy>("copyPromAgent") {
+    from(promAgent.singleFile)
+    into(layout.buildDirectory.dir("agent"))
+    rename("jmx_prometheus_javaagent-.*\\.jar", "prometheus-javaagent.jar")
+// java -Dfluentd.logger.sender.class=com.hayden.utilitymodule.telemetry.log.FluentDRestTemplateSender -Dorg.springframework.boot.logging.LoggingSystem=com.hayden.tracing.TracingLogback -javaagent:commit-diff-context/build/agent/prometheus-javaagent.jar=12345:commit-diff-context/prom-config.yaml jar app-jar.jar
 }
 
 val copyAgent = tasks.register<Copy>("copyAgent") {
