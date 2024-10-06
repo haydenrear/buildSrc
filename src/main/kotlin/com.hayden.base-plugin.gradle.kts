@@ -15,7 +15,10 @@ java {
 repositories {
     mavenLocal()
     mavenCentral()
-
+    gradlePluginPortal()
+    maven {
+        url = uri("https://repo.clojars.org")
+    }
     maven {
         url = uri("https://repo.spring.io/milestone")
     }
@@ -23,7 +26,6 @@ repositories {
     maven {
         url = uri("https://repo.maven.apache.org/maven2/")
     }
-
 }
 
 tasks.withType<Test> {

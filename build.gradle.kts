@@ -10,10 +10,14 @@ dependencies {
     implementation(vC.springDependencyManagement)
     implementation(vC.kotlinGradle)
     implementation("com.bmuschko.docker-remote-api:com.bmuschko.docker-remote-api.gradle.plugin:9.0.1")
+    implementation("dev.clojurephant.clojure:dev.clojurephant.clojure.gradle.plugin:0.8.0-beta.7")
 }
 
 repositories {
     gradlePluginPortal()
+    maven {
+        url = uri("https://repo.clojars.org")
+    }
     mavenLocal()
     mavenCentral()
     maven {
