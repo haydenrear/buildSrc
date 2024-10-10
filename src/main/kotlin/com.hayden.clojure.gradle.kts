@@ -21,4 +21,9 @@ sourceSets {
             srcDir("src/main/clj")
         }
     }
+    test {
+        clojure {
+            srcDirs("src/test/clj", "src/main/clj")
+        }
+    }
 }
