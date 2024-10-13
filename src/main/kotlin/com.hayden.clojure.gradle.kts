@@ -18,12 +18,12 @@ tasks.named<Jar>("jar") {
 sourceSets {
     main {
         clojure {
-            srcDir("src/main/clj")
+            srcDir("src/main/clojure")
         }
     }
     test {
         clojure {
-            srcDirs("src/test/clj", "src/main/clj")
+            srcDirs("src/test/clojure")
         }
     }
 }
