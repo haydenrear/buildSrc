@@ -6,7 +6,8 @@ plugins {
     id("com.hayden.no-main-class")
 }
 
-if (!project.hasProperty("disable-docker")) {
+val enableDocker = project.property("enable-docker")?.toString()?.toBoolean()!!
+if (enableDocker) {
     docker {
         uri("unix:///var/run/docker.sock")
         registryCredentials {
@@ -19,57 +20,57 @@ if (!project.hasProperty("disable-docker")) {
     }
 }
 
-data class DockerContext(val imageName: String, val contextDir: String, val taskPrefix: String) {
-}
+data class DockerContext(val imageName: String, val contextDir: String, val taskPrefix: String)
 
-extensions.create<WrapDockerArgs>("wrapDocker");
+extensions.create<WrapDockerArgs>("wrapDocker")
 
 interface WrapDockerArgs {
     val ctx: Property<Array<DockerContext>>
 }
 
-val ctxs = extensions.getByType(WrapDockerArgs::class.java).ctx;
+val ctxs = extensions.getByType(WrapDockerArgs::class.java).ctx
 
-afterEvaluate {
+if (enableDocker)
+    afterEvaluate {
 
 
-    val c = ctxs.map { it ->
+        val c = ctxs.map { it ->
 
-        println("Adding Docker tasks.")
+            println("Adding Docker tasks.")
 
-        val createTasks = mutableListOf<String>();
+            val createTasks = mutableListOf<String>();
 
-        val inContexts = it.map {
+            val inContexts = it.map {
 
-            val createImage = "${it.taskPrefix}DockerImage"
-            tasks.register<DockerBuildImage>(createImage) {
-                if (!project.hasProperty("disable-docker")) {
-                    inputDir.set(file(it.contextDir))
-                    images.add(it.imageName)
-                    logging.captureStandardOutput(LogLevel.DEBUG)
+                val createImage = "${it.taskPrefix}DockerImage"
+                tasks.register<DockerBuildImage>(createImage) {
+                    if (project.property("enable-docker")?.toString()?.toBoolean() == true) {
+                        inputDir.set(file(it.contextDir))
+                        images.add(it.imageName)
+                        logging.captureStandardOutput(LogLevel.DEBUG)
+                    }
+                }
+
+                it.imageName
+            }
+
+
+            tasks.register<DockerPushImage>("pushImages") {
+                if (project.property("enable-docker")?.toString()?.toBoolean() == true) {
+                    images.addAll(inContexts)
                 }
             }
 
-            it.imageName
-        }
+            val c = it.map { "${it.taskPrefix}DockerImage" }.toMutableList();
+            c.add("pushImages");
 
-
-        tasks.register<DockerPushImage>("pushImages") {
-            if (!project.hasProperty("disable-docker")) {
-                images.addAll(inContexts)
+            tasks.withType<JavaCompile>() {
+                dependsOn(c)
             }
-        }
 
-        val c = it.map { "${it.taskPrefix}DockerImage" }.toMutableList();
-        c.add("pushImages");
-
-        tasks.withType<JavaCompile>() {
-            dependsOn(c)
-        }
-
-        it
-    }.getOrElse(emptyArray())
+            it
+        }.getOrElse(emptyArray())
 
 
-    println("Found: " + c)
-}
+        println("Found: " + c)
+    }
