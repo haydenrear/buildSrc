@@ -5,6 +5,7 @@ plugins {
 
 dependencies {
     implementation("com.hayden:hayden-bom-plugin:0.0.1")
+    implementation("org.ndrwdn.mbgradle:mountebank:0.0.8")
     implementation(vC.netflixDgsLib)
     implementation(vC.springBoot)
     implementation(vC.springDependencyManagement)
@@ -17,6 +18,9 @@ repositories {
     gradlePluginPortal()
     maven {
         url = uri("https://repo.clojars.org")
+    }
+    maven {
+        url = uri("https://jitpack.io")
     }
     mavenLocal()
     mavenCentral()
