@@ -1,7 +1,3 @@
-import org.gradle.api.tasks.JavaExec
-import org.gradle.kotlin.dsl.project
-import org.gradle.kotlin.dsl.withType
-
 plugins {
     id("com.hayden.spring")
     id("com.hayden.observable-app")
