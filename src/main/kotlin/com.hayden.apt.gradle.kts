@@ -1,7 +1,6 @@
 val catalogs = extensions.getByType<VersionCatalogsExtension>()
 
 
-
 plugins {
     `java-library`
 }

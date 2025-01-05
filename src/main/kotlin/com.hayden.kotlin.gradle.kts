@@ -1,8 +1,4 @@
-import gradle.kotlin.dsl.accessors._3743b5a2d0979aeed8493201d618fc18.api
-import gradle.kotlin.dsl.accessors._3743b5a2d0979aeed8493201d618fc18.compileOnly
-import gradle.kotlin.dsl.accessors._3743b5a2d0979aeed8493201d618fc18.testImplementation
 import org.gradle.kotlin.dsl.kotlin
-import org.gradle.kotlin.dsl.support.kotlinCompilerOptions
 
 plugins {
     kotlin("jvm")
@@ -26,7 +22,7 @@ dependencies {
 }
 
 java {
-    version = JavaVersion.VERSION_21
+    version = JavaVersion.VERSION_23
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {

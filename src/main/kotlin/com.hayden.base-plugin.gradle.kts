@@ -6,7 +6,7 @@ plugins {
 
 
 java {
-    version = 21
+    version = 23
 }
 
 

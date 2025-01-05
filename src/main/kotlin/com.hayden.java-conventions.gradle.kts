@@ -6,7 +6,7 @@ plugins {
 
 
 java {
-    version = JavaVersion.VERSION_21
+    version = JavaVersion.VERSION_23
 }
 
 dependencies {
