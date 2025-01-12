@@ -5,11 +5,6 @@ plugins {
 }
 
 
-java {
-    version = 23
-}
-
-
 repositories {
     mavenLocal()
     mavenCentral()

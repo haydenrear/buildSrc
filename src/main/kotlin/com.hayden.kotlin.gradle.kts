@@ -8,7 +8,6 @@ kotlin {
     jvmToolchain(21)
 }
 
-
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.23")
     implementation(kotlin("stdlib-jdk8"))
@@ -22,7 +21,7 @@ dependencies {
 }
 
 java {
-    version = JavaVersion.VERSION_23
+    version = JavaVersion.VERSION_21
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
