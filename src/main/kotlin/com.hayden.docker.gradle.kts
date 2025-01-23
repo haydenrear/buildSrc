@@ -41,7 +41,7 @@ if (enableDocker)
 
                     val createImage = "${it.taskPrefix}DockerImage"
                     tasks.register<DockerBuildImage>(createImage) {
-                        inputDir.set(file(it.contextDir))
+                        inputDir = file(it.contextDir)
                         images.add(it.imageName)
                         logging.captureStandardOutput(LogLevel.DEBUG)
                     }
@@ -58,9 +58,9 @@ if (enableDocker)
 
                 nextImage.add("pushImages")
 
-                tasks.withType<JavaCompile> {
-                    dependsOn(nextImage)
-                }
+//                tasks.withType<JavaCompile> {
+//                    dependsOn(nextImage)
+//                }
 
                 it
             }

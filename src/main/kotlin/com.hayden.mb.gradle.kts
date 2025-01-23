@@ -20,6 +20,6 @@ tasks.startMountebank {
 
 dependencies {
     implementation("org.ndrwdn.mbgradle:mountebank:0.0.8")
-    implementation("org.mbtest.javabank:javabank-client:0.4.10")
-    implementation("org.mbtest.javabank:javabank-core:0.4.10")
+    implementation("org.mbtest.javabank:javabank-client:0.4.11-SNAPSHOT-BRANCH")
+    implementation("org.mbtest.javabank:javabank-core:0.4.11-SNAPSHOT-BRANCH")
 }
