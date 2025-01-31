@@ -32,9 +32,9 @@ dependencies {
 
     api("org.eclipse.collections:eclipse-collections-api:11.0.0")
     api("org.eclipse.collections:eclipse-collections:11.0.0")
-    api("org.apache.commons:commons-lang3:3.6")
+    api("org.apache.commons:commons-lang3:3.17.0")
     api("org.apache.commons:commons-math3:3.6.1")
-    api("org.apache.commons:commons-compress:1.26.2")
+    api("org.apache.commons:commons-compress:1.27.1")
 
     implementation("io.netty:netty-transport-native-epoll:4.1.84.Final")
 
