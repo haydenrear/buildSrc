@@ -6,7 +6,7 @@ plugins {
     id("com.hayden.no-main-class")
 }
 
-val enableDocker = project.property("enable-docker")?.toString()?.toBoolean()!!
+val enableDocker = project.property("enable-docker")?.toString()?.toBoolean()?.or(false) ?: false
 
 data class DockerContext(val imageName: String, val contextDir: String, val taskPrefix: String)
 
@@ -27,7 +27,6 @@ if (enableDocker) {
         registryCredentials {
             url = "http://localhost:5001"
         }
-
     }
 }
 
