@@ -15,11 +15,11 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-validation")
 }
 
-tasks.withType(Test::class.java) {
+tasks.withType(Test::class) {
     useJUnitPlatform()
 }
 
-val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class.java)
+val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class)
 
 vC.bundles.externalBomsBundle.inBundle().forEach { println(it) }
 

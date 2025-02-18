@@ -6,7 +6,7 @@ plugins {
 }
 
 // version catalog re-exported for buildSrc
-val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class.java)
+val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class)
 
 dependencies {
     implementation(platform("com.hayden:hayden-bom:0.0.1"))

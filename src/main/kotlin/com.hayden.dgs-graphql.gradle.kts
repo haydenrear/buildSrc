@@ -6,7 +6,7 @@ plugins {
     id("com.hayden.graphql")
 }
 
-val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class.java)
+val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class)
 
 dependencies {
     implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter")

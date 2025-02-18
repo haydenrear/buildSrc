@@ -4,7 +4,7 @@ plugins {
     id("com.hayden.base-plugin")
 }
 
-val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class.java)
+val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class)
 
 dependencies {
     vC.bundles.opentelemetryBundle.inBundle()
