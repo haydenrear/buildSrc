@@ -1,13 +1,12 @@
 import com.hayden.haydenbomplugin.BuildSrcVersionCatalogCollector
 
 plugins {
-    `java-library`
-    id("com.hayden.hayden-bom-plugin")
+    id("com.hayden.ai")
 }
 
-// version catalog re-exported for buildSrc
 val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class)
 
 dependencies {
-    implementation(platform("com.hayden:hayden-bom:0.0.4"))
+    vC.bundles.springAiServerBundle.inBundle()
+        .map { implementation(it) }
 }

@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies {
-    implementation("com.hayden:hayden-bom-plugin:0.0.1")
+    implementation("com.hayden:hayden-bom-plugin:0.0.4")
     implementation("org.ndrwdn.mbgradle:mountebank:0.0.8")
     implementation(vC.netflixDgsLib)
     implementation(vC.springBoot)

@@ -10,7 +10,6 @@ dependencies {
     implementation(project(":shared"))
     implementation(project(":messagebroker"))
     implementation(project(":graphql"))
-    implementation("com.fasterxml.jackson.module:jackson-module-jsonSchema:2.18.3")
 }
 
 

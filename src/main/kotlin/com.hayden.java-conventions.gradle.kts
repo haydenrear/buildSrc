@@ -23,7 +23,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-testcontainers")
     testImplementation("org.testcontainers:postgresql:1.19.4")
 
-    runtimeOnly("org.springframework.boot:spring-boot-devtools")
+//    runtimeOnly("org.springframework.boot:spring-boot-devtools")
 
     implementation("org.jsoup:jsoup:1.16.1")
 
