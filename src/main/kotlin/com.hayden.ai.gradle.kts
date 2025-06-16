@@ -17,5 +17,6 @@ dependencies {
         .map { implementation(it) }
 
     implementation("com.fasterxml.jackson.module:jackson-module-jsonSchema:2.18.3")
+    implementation("org.springframework.ai:spring-ai-starter-model-ollama")
 
 }
