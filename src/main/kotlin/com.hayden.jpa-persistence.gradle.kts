@@ -9,5 +9,6 @@ dependencies {
     implementation("org.hibernate.orm:hibernate-vector:6.4.4.Final")
     implementation("com.querydsl:querydsl-jpa:5.0.0:jakarta")
     annotationProcessor("com.querydsl:querydsl-apt:5.0.0:jakarta")
+    implementation("io.hypersistence:hypersistence-utils-hibernate-63:3.10.1")
 }
 

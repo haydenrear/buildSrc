@@ -8,7 +8,7 @@ dependencies {
     implementation("org.postgresql:postgresql")
     implementation("org.liquibase:liquibase-core")
 
-    implementation("io.hypersistence:hypersistence-tsid:2.1.2")
+    implementation("io.hypersistence:hypersistence-tsid:2.1.4")
     annotationProcessor("jakarta.persistence:jakarta.persistence-api:3.1.0")
     implementation("jakarta.persistence:jakarta.persistence-api:3.1.0")
 }
