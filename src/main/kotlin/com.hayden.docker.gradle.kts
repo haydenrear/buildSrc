@@ -40,6 +40,7 @@ if (enableDocker)
 
                     val createImage = "${it.taskPrefix}DockerImage"
                     tasks.register<DockerBuildImage>(createImage) {
+                        inputs.dir(it.contextDir)
                         inputDir = file(it.contextDir)
                         images.add(it.imageName)
                         logging.captureStandardOutput(LogLevel.DEBUG)
