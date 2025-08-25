@@ -17,6 +17,8 @@ tasks.register("processYmlFiles") {
 
                 var originalContent = inputPath.readText()
                 originalContent = originalContent.replace("{{PROJ_DIR}}", layout.projectDirectory.toString())
+                originalContent = originalContent.replace("{{PARENT_DIR}}", file(layout.projectDirectory).parent.toString())
+                originalContent = originalContent.replace("{{BUILD_DIR}}", file(layout.buildDirectory).toString())
 
                 outputPath.parentFile.mkdirs()
                 outputPath.writeText(originalContent)
@@ -49,6 +51,8 @@ tasks.register("processMcpServerJson") {
 
                 var originalContent = inputPath.readText()
                 originalContent = originalContent.replace("{{PROJ_DIR}}", layout.projectDirectory.toString())
+                originalContent = originalContent.replace("{{PARENT_DIR}}", file(layout.projectDirectory).parent)
+                originalContent = originalContent.replace("{{BUILD_DIR}}", file(layout.buildDirectory).toString())
 
                 outputPath.parentFile.mkdirs()
                 outputPath.writeText(originalContent)
