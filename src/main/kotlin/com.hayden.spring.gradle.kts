@@ -13,6 +13,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation("org.springframework.boot:spring-boot-starter-mustache")
 }
 
 tasks.withType(Test::class) {
