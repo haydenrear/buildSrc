@@ -61,7 +61,11 @@ tasks.register("processMcpServerJson") {
             }
     }
     doLast {
+        doFile("src/main/resources/stdio-mcp-servers", "resources/main/stdio-mcp-servers")
+        doFile("src/main/resources/http-mcp-servers", "resources/main/http-mcp-servers")
         doFile("src/main/resources/mcp-servers", "resources/main/mcp-servers")
+        doFile("src/test/resources/test-stdio-mcp-servers", "resources/test/test-stdio-mcp-servers")
+        doFile("src/test/resources/test-http-mcp-servers", "resources/test/test-http-mcp-servers")
         doFile("src/test/resources/test-mcp-servers", "resources/test/test-mcp-servers")
     }
 }
