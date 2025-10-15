@@ -25,7 +25,7 @@ if (enableDocker) {
             url = "https://index.docker.io/v1/"
         }
         registryCredentials {
-            url = "http://localhost:5001"
+            url = "http://localhost:5005"
         }
     }
 }
