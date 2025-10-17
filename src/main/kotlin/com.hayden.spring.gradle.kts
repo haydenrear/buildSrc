@@ -22,8 +22,6 @@ tasks.withType(Test::class) {
 
 val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class)
 
-vC.bundles.externalBomsBundle.inBundle().forEach { println(it) }
-
 dependencyManagement {
     imports {
         vC.bundles.externalBomsBundle.inBundle().map { mavenBom(it) }

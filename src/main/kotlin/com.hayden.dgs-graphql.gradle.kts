@@ -9,6 +9,9 @@ plugins {
 val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class)
 
 dependencies {
+    implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter")
+    implementation("com.netflix.graphql.dgs:graphql-dgs-extended-scalars")
+
     vC.bundles.dgsBundle.inBundle()
         .map { implementation(it) }
 }
