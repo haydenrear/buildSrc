@@ -4,11 +4,5 @@ plugins {
 
 // TODO
 
-tasks.register("buildPython") {
-    exec {
-//        commandLine("python3")
-    }
-}
-
 dependencies {
 }

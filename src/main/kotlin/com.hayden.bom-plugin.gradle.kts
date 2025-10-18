@@ -5,7 +5,7 @@ plugins {
     id("com.hayden.hayden-bom-plugin")
 }
 
-// version catalog re-exported for buildSrc
+
 val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class)
 
 dependencies {

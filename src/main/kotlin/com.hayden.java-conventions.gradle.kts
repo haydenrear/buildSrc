@@ -39,10 +39,10 @@ dependencies {
     implementation("io.netty:netty-transport-native-epoll:4.1.84.Final")
 
 
-    compileOnly("org.projectlombok:lombok:1.18.30")
-    annotationProcessor("org.projectlombok:lombok:1.18.30")
-    testCompileOnly( "org.projectlombok:lombok:1.18.30")
-    testAnnotationProcessor( "org.projectlombok:lombok:1.18.30")
+    compileOnly("org.projectlombok:lombok:1.18.42")
+    annotationProcessor("org.projectlombok:lombok:1.18.42")
+    testCompileOnly( "org.projectlombok:lombok:1.18.42")
+    testAnnotationProcessor( "org.projectlombok:lombok:1.18.42")
 
     api("com.google.guava:guava:30.1.1-jre")
 
@@ -76,15 +76,15 @@ tasks.withType<Javadoc>() {
 }
 
 tasks.withType<JavaCompile> {
-//    options.compilerArgs.add("--enable-preview")
+    options.compilerArgs.add("--enable-preview")
 }
 
 tasks.withType<Test> {
-//    jvmArgs("--enable-preview")
+    jvmArgs("--enable-preview")
 }
 
 tasks.withType<JavaExec> {
-//    jvmArgs("--enable-preview")
+    jvmArgs("--enable-preview")
 }
 
 

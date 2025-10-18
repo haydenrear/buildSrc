@@ -7,8 +7,6 @@ plugins {
 
 dependencies {
     implementation(project(":utilitymodule"))
-//    implementation(project(":shared"))
-//    implementation(project(":messagebroker"))
     implementation(project(":graphql"))
 }
 

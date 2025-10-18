@@ -25,5 +25,6 @@ val vC = project.extensions.getByType(BuildSrcVersionCatalogCollector::class)
 dependencyManagement {
     imports {
         vC.bundles.externalBomsBundle.inBundle().map { mavenBom(it) }
+        mavenBom("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:8.1.1")
     }
 }
