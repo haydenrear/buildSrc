@@ -1,10 +1,12 @@
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
+import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
     id("com.bmuschko.docker-remote-api")
     id("com.hayden.no-main-class")
 }
+
 
 val enableDocker = project.property("enable-docker")?.toString()?.toBoolean()?.or(false) ?: false
 
@@ -17,6 +19,8 @@ interface WrapDockerArgs {
 }
 
 val dockerContexts = extensions.getByType(WrapDockerArgs::class.java).ctx
+
+
 
 if (enableDocker) {
     docker {
@@ -31,15 +35,26 @@ if (enableDocker) {
 }
 
 
+tasks.register<Copy>("copyJar") {
+    dependsOn("bootJar")
+    println("copying: " + projectDir.path)
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    from(file(layout.buildDirectory).resolve("libs"))
+    into(file(layout.projectDirectory).resolve("src/main/docker"))
+    val jar = tasks.getByName("bootJar", BootJar::class).archiveFileName
+        .get()
+    println("Copying: " + jar)
+    include(jar)
+}
+
 if (enableDocker)
     afterEvaluate {
-
-
         val dockerTasks = dockerContexts.map { it ->
                 val inContexts = it.map {
 
                     val createImage = "${it.taskPrefix}DockerImage"
                     tasks.register<DockerBuildImage>(createImage) {
+                        dependsOn("copyJar")
                         inputs.dir(it.contextDir)
                         inputDir = file(it.contextDir)
                         images.add(it.imageName)
@@ -49,8 +64,12 @@ if (enableDocker)
                     it.imageName
                 }
 
+                val pushImageDeps = it.map { "${it.taskPrefix}DockerImage" }.toMutableList()
+
+                pushImageDeps.addFirst("copyJar")
 
                 tasks.register<DockerPushImage>("pushImages") {
+                    dependsOn("copyJar")
                     images.addAll(inContexts)
                 }
 
