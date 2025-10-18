@@ -68,12 +68,15 @@ if (enableDocker)
 
                 pushImageDeps.addFirst("copyJar")
 
-                tasks.register<DockerPushImage>("pushImages") {
-                    dependsOn("copyJar")
-                    images.addAll(inContexts)
+                if (inContexts.size != 0) {
+                    tasks.register<DockerPushImage>("pushImages") {
+                        dependsOn("copyJar")
+                        images.addAll(inContexts)
+                    }
                 }
 
-                val nextImage = it.map { "${it.taskPrefix}DockerImage" }.toMutableList();
+                val nextImage = it.map { "${it.taskPrefix}DockerImage" }
+                    .toMutableList();
 
                 nextImage.add("pushImages")
 
