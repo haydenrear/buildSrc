@@ -9,7 +9,7 @@ dependencies {
     implementation(vC.netflixDgsLib)
     implementation(vC.springBoot)
     implementation(vC.springDependencyManagement)
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.2.21-RC2")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.2.20")
     implementation("com.bmuschko.docker-remote-api:com.bmuschko.docker-remote-api.gradle.plugin:9.0.1")
     implementation("dev.clojurephant.clojure:dev.clojurephant.clojure.gradle.plugin:0.8.0-beta.7")
 }
