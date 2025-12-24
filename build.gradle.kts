@@ -6,7 +6,6 @@ plugins {
 dependencies {
     implementation("com.hayden:hayden-bom-plugin:0.0.4")
     implementation("org.ndrwdn.mbgradle:mountebank:0.0.8")
-    implementation(vC.netflixDgsLib)
     implementation(vC.springBoot)
     implementation(vC.springDependencyManagement)
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.2.20")
@@ -32,4 +31,3 @@ repositories {
         url = uri("https://repo.maven.apache.org/maven2/")
     }
 }
-
