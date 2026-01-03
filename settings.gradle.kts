@@ -11,3 +11,11 @@ dependencyResolutionManagement {
         mavenLocal()
     }
 }
+
+pluginManagement {
+    repositories {
+        google()
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
