@@ -22,5 +22,6 @@ dependencies {
     implementation("com.ag-ui.community:kotlin-core-jvm:0.2.4")
     implementation("org.jspecify:jspecify:1.0.0")
     implementation("com.ag-ui.community:kotlin-core-jvm:0.2.4")
+    implementation("org.springaicommunity:spring-ai-agent-utils:0.3.0")
 
 }
