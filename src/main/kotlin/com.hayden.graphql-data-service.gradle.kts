@@ -6,6 +6,6 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":utilitymodule"))
+    implementation(project(":multi_agent_ide_java_parent:utilitymodule"))
     implementation(project(":graphql"))
 }
