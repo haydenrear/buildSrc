@@ -18,7 +18,7 @@ tasks.register("processYmlFiles") {
                 var originalContent = inputPath.readText()
                 originalContent = originalContent.replace("{{HOME_DIR}}", System.getenv().getOrDefault("HOME", "/Users/hayde"))
                 originalContent = originalContent.replace("{{PROJ_DIR}}", layout.projectDirectory.toString())
-                originalContent = originalContent.replace("{{PARENT_DIR}}", file(layout.projectDirectory).parent.toString())
+                originalContent = originalContent.replace("{{PARENT_DIR}}", layout.settingsDirectory.toString())
                 originalContent = originalContent.replace("{{BUILD_DIR}}", file(layout.buildDirectory).toString())
 
                 outputPath.parentFile.mkdirs()
