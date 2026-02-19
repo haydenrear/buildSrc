@@ -16,10 +16,14 @@ tasks.register("processXmlFiles") {
                 }
 
                 var originalContent = inputPath.readText()
-                originalContent = originalContent.replace("{{HOME_DIR}}", System.getenv().getOrDefault("HOME", "/Users/hayde"))
-                originalContent = originalContent.replace("{{PROJ_DIR}}", layout.projectDirectory.toString())
-                originalContent = originalContent.replace("{{PARENT_DIR}}", layout.settingsDirectory.toString())
-                originalContent = originalContent.replace("{{BUILD_DIR}}", file(layout.buildDirectory).toString())
+                originalContent = originalContent.replace("{{HOME_DIR}}", System.getenv().getOrDefault("HOME", "/Users/hayde"), true)
+                originalContent = originalContent.replace("{{PROJ_DIR}}", layout.projectDirectory.toString(), true)
+                originalContent = originalContent.replace("{ { HOME_DIR } }", System.getenv().getOrDefault("HOME", "/Users/hayde"), true)
+                originalContent = originalContent.replace("{ { PROJ_DIR } }", layout.projectDirectory.toString(), true)
+                originalContent = originalContent.replace("{{PARENT_DIR}}", layout.settingsDirectory.toString(), true)
+                originalContent = originalContent.replace("{{BUILD_DIR}}", file(layout.buildDirectory).toString(), true)
+                originalContent = originalContent.replace("{ { PARENT_DIR } }", layout.settingsDirectory.toString(), true)
+                originalContent = originalContent.replace("{ { BUILD_DIR } }", file(layout.buildDirectory).toString(), true)
 
                 outputPath.parentFile.mkdirs()
                 outputPath.writeText(originalContent)
@@ -51,10 +55,14 @@ tasks.register("processYmlFiles") {
                 }
 
                 var originalContent = inputPath.readText()
-                originalContent = originalContent.replace("{{HOME_DIR}}", System.getenv().getOrDefault("HOME", "/Users/hayde"))
-                originalContent = originalContent.replace("{{PROJ_DIR}}", layout.projectDirectory.toString())
-                originalContent = originalContent.replace("{{PARENT_DIR}}", layout.settingsDirectory.toString())
-                originalContent = originalContent.replace("{{BUILD_DIR}}", file(layout.buildDirectory).toString())
+                originalContent = originalContent.replace("{{HOME_DIR}}", System.getenv().getOrDefault("HOME", "/Users/hayde"), true)
+                originalContent = originalContent.replace("{{PROJ_DIR}}", layout.projectDirectory.toString(), true)
+                originalContent = originalContent.replace("{{PARENT_DIR}}", layout.settingsDirectory.toString(), true)
+                originalContent = originalContent.replace("{{BUILD_DIR}}", file(layout.buildDirectory).toString(), true)
+                originalContent = originalContent.replace("{ { HOME_DIR } }", System.getenv().getOrDefault("HOME", "/Users/hayde"), true)
+                originalContent = originalContent.replace("{ { PROJ_DIR } }", layout.projectDirectory.toString(), true)
+                originalContent = originalContent.replace("{ { PARENT_DIR } }", layout.settingsDirectory.toString(), true)
+                originalContent = originalContent.replace("{ { BUILD_DIR } }", file(layout.buildDirectory).toString(), true)
 
                 outputPath.parentFile.mkdirs()
                 outputPath.writeText(originalContent)
@@ -86,9 +94,9 @@ tasks.register("processMcpServerJson") {
                 }
 
                 var originalContent = inputPath.readText()
-                originalContent = originalContent.replace("{{PROJ_DIR}}", layout.projectDirectory.toString())
-                originalContent = originalContent.replace("{{PARENT_DIR}}", file(layout.projectDirectory).parent)
-                originalContent = originalContent.replace("{{BUILD_DIR}}", file(layout.buildDirectory).toString())
+                originalContent = originalContent.replace("{{PROJ_DIR}}", layout.projectDirectory.toString(), true)
+                originalContent = originalContent.replace("{{PARENT_DIR}}", file(layout.projectDirectory).parent, true)
+                originalContent = originalContent.replace("{{BUILD_DIR}}", file(layout.buildDirectory).toString(), true)
 
                 outputPath.parentFile.mkdirs()
                 outputPath.writeText(originalContent)
